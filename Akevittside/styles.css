@@ -1,0 +1,46 @@
+/* ... (all din eksisterende CSS) ... */
+
+/* STILER FOR DET NYE SKJEMAET */
+.add-form-container {
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.add-form-container h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+#add-akevitt-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#add-akevitt-form input {
+    flex-grow: 1;
+    padding: 0.8rem;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#add-akevitt-form button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--link-color);
+    color: var(--primary-bg);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+#add-akevitt-form button:hover {
+    background-color: var(--hover-color);
+}
