@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,20 @@
     </div>
 
     <main>
+        <div class="mobil-sortering">
+            <label for="sort-select">Sorter etter:</label>
+            <select id="sort-select">
+                <option value="navn-asc">Navn (A-Å)</option>
+                <option value="navn-desc">Navn (Å-A)</option>
+                <option value="pris-asc">Pris (Lav-Høy)</option>
+                <option value="pris-desc">Pris (Høy-Lav)</option>
+                <option value="produsent-asc">Produsent (A-Å)</option>
+                <option value="produsent-desc">Produsent (Å-A)</option>
+                <option value="kjopt-asc">Kjøpt (Eldst-Nyest)</option>
+                <option value="kjopt-desc">Kjøpt (Nyest-Eldst)</option>
+            </select>
+        </div>
+
         <table id="akevitt-tabell">
             <thead>
                 <tr>
@@ -32,6 +46,32 @@
             <tbody>
                 </tbody>
         </table>
+
+        <div class="add-form-container">
+            <h2>Legg til ny akevitt</h2>
+            <form id="add-akevitt-form">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="navn">Navn:</label>
+                        <input type="text" id="navn" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="pris">Pris:</label>
+                        <input type="text" id="pris" placeholder="kr 499,90">
+                    </div>
+                    <div class="form-field">
+                        <label for="produsent">Produsent:</label>
+                        <input type="text" id="produsent">
+                    </div>
+                    <div class="form-field">
+                        <label for="kjopt">Kjøpt:</label>
+                        <input type="text" id="kjopt" placeholder="dd.mm.åååå eller 'Gave'">
+                    </div>
+                </div>
+                <button type="submit">Legg til i samlingen</button>
+            </form>
+        </div>
+
     </main>
     
     <div id="footer">

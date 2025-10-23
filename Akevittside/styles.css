@@ -1,10 +1,102 @@
-/* ... (all din eksisterende CSS) ... */
+/* --- GLOBALE STILER OG MØRKT TEMA --- */
+:root {
+    /* Definerer fargepaletten for mørkt tema */
+    --primary-bg: #1a1a1a;      /* Mørk grå (nesten svart) */
+    --secondary-bg: #2c2c2c;    /* Litt lysere grå (for tabellstriper/skjema) */
+    --text-color: #f0f0f0;      /* Lys grå (nesten hvit) */
+    --text-light: #ffffff;      /* Hvit (for header) */
+    --border-color: #444444;    /* Mørk grå kantlinje */
+    --link-color: #3399ff;      /* Lys, klar blå */
+    --hover-color: #66bbff;     /* Enda lysere blå ved hover */
+}
 
-/* STILER FOR DET NYE SKJEMAET */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* --- TOPPSEKSJON (HERO) - NYTT FORSØK UTEN 'FIXED' --- */
+.hero-section {
+    color: var(--text-light);
+    padding: 8rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background-image: url("image_cea957.jpg"); /* Ditt filnavn */
+    background-size: cover;
+
+    /* VIKTIG ENDRING: 'background-attachment: fixed;' er fjernet.
+      Nå vil 'background-position' fungere nøyaktig som vi forventer,
+      ved å posisjonere bildet relativt til selve header-boksen.
+    */
+    background-attachment: scroll; /* 'scroll' er standard, så denne linjen kan også slettes */
+    
+    /* Vi prøver en enda tydeligere posisjonering, 
+      f.eks. 60%. Juster gjerne dette tallet (f.eks. 70%, 50%) 
+      til du er helt fornøyd.
+    */
+    background-position: center 60%; 
+}
+
+/* Mørk overtoning (samme som sist, 55%) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55); 
+    z-index: 1;
+}
+
+/* Teksten (samme som sist) */
+.hero-section header {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* --- SKJEMA FOR Å LEGGE TIL NY --- */
 .add-form-container {
     background-color: var(--secondary-bg);
     padding: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem; /* Endret fra margin-bottom siden den nå er nederst */
     border-radius: 8px;
     border: 1px solid var(--border-color);
 }
@@ -12,35 +104,292 @@
 .add-form-container h2 {
     margin-top: 0;
     text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 #add-akevitt-form {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#add-akevitt-form .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
 
-#add-akevitt-form input {
-    flex-grow: 1;
-    padding: 0.8rem;
-    background-color: var(--primary-bg);
-    border: 1px solid var(--border-color);
+#add-akevitt-form .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#add-akevitt-form .form-field label {
+    font-weight: 700;
+    font-size: 0.9rem;
     color: var(--text-color);
+}
+
+#add-akevitt-form input {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-bg); /* Mørk bakgrunn */
+    border: 1px solid var(--border-color);
+    color: var(--text-color); /* Lys tekst */
     border-radius: 4px;
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+#add-akevitt-form input::placeholder {
+    color: #888; /* Litt mørkere placeholder-tekst */
 }
 
 #add-akevitt-form button {
     padding: 0.8rem 1.5rem;
     background-color: var(--link-color);
-    color: var(--primary-bg);
+    color: var(--primary-bg); /* Mørk tekst på lys knapp */
     border: none;
     cursor: pointer;
     border-radius: 4px;
     font-weight: 700;
     transition: background-color 0.3s ease;
+    align-self: flex-start;
 }
 
 #add-akevitt-form button:hover {
     background-color: var(--hover-color);
+}
+
+/* --- AKEVITT-TABELL --- */
+#akevitt-tabell {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+#akevitt-tabell th,
+#akevitt-tabell td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+#akevitt-tabell thead th {
+    background-color: var(--secondary-bg);
+    font-weight: 700;
+}
+
+/* Stripete rader for lesbarhet */
+#akevitt-tabell tbody tr:nth-of-type(even) {
+    background-color: var(--secondary-bg);
+}
+
+/* Sorteringspiler */
+#akevitt-tabell th.sortable {
+    cursor: pointer;
+    position: relative;
+}
+
+#akevitt-tabell th .sort-arrow {
+    display: inline-block;
+    width: 1em;
+    text-align: right;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+}
+
+#akevitt-tabell th.sorted-asc .sort-arrow::after,
+#akevitt-tabell th.sorted-desc .sort-arrow::after {
+    opacity: 1;
+}
+
+#akevitt-tabell th.sorted-asc .sort-arrow::after {
+    content: ' ▲';
+}
+
+#akevitt-tabell th.sorted-desc .sort-arrow::after {
+    content: ' ▼';
+}
+
+/* Lenke-ikonet i tabellen */
+#akevitt-tabell td a {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+/* --- BUNNTEKST (FOOTER) - OPPGRADERT MED BILDE --- */
+#footer {
+    text-align: center;
+    padding: 2rem 0; /* Beholder litt padding */
+    margin-top: 2rem;
+    color: #FFF; /* Setter teksten til hvit for kontrast */
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+
+    /* --- Bildestiler flyttet til footeren --- */
+    background-image: url("image_cea9572.jpg");
+    background-size: cover; /* Dekker hele området */
+    background-position: center; /* Senterer bildet */
+    background-repeat: no-repeat;
+    
+    /* --- HØYDEJUSTERING --- */
+    /* Setter en fast minimumshøyde for å vise bildet.
+       Juster 250px opp eller ned som du selv ønsker! */
+    min-height: 250px; 
+
+    /* Bruker flexbox for å enkelt sentrere teksten vertikalt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Posisjonering for overtoning */
+    position: relative; 
+}
+
+/* Legger til en mørk overtoning (som på headeren) for å gjøre teksten leselig */
+#footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% mørkt filter */
+    z-index: 1; /* Legger seg bak teksten */
+}
+
+#footer p {
+    font-size: 45px;
+    margin: 0;
+    /* Fjerner bildet herfra */
+
+    /* Sørger for at teksten er OVER overtoningen */
+    position: relative; 
+    z-index: 2; 
+    
+    /* Legger til skygge på teksten for ekstra lesbarhet */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* --- RESPONSIVT DESIGN (MOBIL) - NY, OPPGRADERT VERSJON --- */
+
+@media (max-width: 600px) {
+
+    /* DENNE ER VIKTIG: VISER MOBIL-SORTERINGEN */
+    .mobil-sortering {
+        display: block;
+    }
+
+    /* ... (resten av mobil-CSSen din for tabellen, osv.) ... */
+    .mobil-sortering {
+        display: none; /* Skjult som standard */
+        margin-bottom: 1.5rem;
+    }
+
+    .mobil-sortering label {
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    .mobil-sortering select {
+        width: 100%;
+        max-width: 250px;
+        padding: 0.8rem;
+        background-color: var(--secondary-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+        border-radius: 4px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    /* Gjør skjemaet om til én kolonne */
+    #add-akevitt-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- NYTT KORT-DESIGN FOR MOBIL --- */
+
+    /* Skjuler den vanlige tabell-headeren */
+    #akevitt-tabell thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    /* 1. Selve kortet (hver rad blir et kort) */
+    #akevitt-tabell tr {
+        display: block;
+        margin-bottom: 1.5rem; /* Mer luft mellom kortene */
+        border: none; /* Fjerner den gamle kanten */
+        border-radius: 8px; /* Runde hjørner */
+        overflow: hidden; /* Holder alt pent inni */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Dybde/skygge */
+        background-color: var(--secondary-bg) !important; /* Bakgrunn for kortet */
+    }
+    
+    #akevitt-tabell tr:nth-of-type(even) {
+        background-color: var(--secondary-bg) !important;
+    }
+
+    /* 2. Hver celle (hver rad *inni* kortet) */
+    #akevitt-tabell td {
+        display: block;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        padding: 12px 15px 12px 45%; /* Øker venstre padding for å gi plass til emoji/label */
+        text-align: right;
+        min-height: 25px; /* Sørger for at tynne rader ser bra ut */
+    }
+
+    /* 3. Tittelen (den viktigste endringen) */
+    #akevitt-tabell td:nth-of-type(1) {
+        background-color: #333; /* En mørkere "header" for kortet */
+        color: var(--text-light);
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 15px; /* Full padding */
+        text-align: left;
+        border-bottom: 2px solid var(--link-color); /* Liten fargedetalj */
+    }
+
+    /* Fjerner "Navn:"-labelen (siden det nå er en tittel) */
+    #akevitt-tabell td:nth-of-type(1):before {
+        content: "";
+        display: none;
+    }
+
+    /* Siste celle på kortet skal ikke ha kantlinje */
+    #akevitt-tabell td:last-child {
+        border-bottom: 0;
+    }
+    
+    /* 4. Labels med Emojis (gjør det mindre kjedelig!) */
+    #akevitt-tabell td:before {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        width: auto; /* Lar den tilpasse seg teksten */
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--text-color);
+    }
+
+    /* Her legger vi inn emojis! */
+    #akevitt-tabell td:nth-of-type(2):before { content: "💰 Pris"; }
+    #akevitt-tabell td:nth-of-type(3):before { content: "🏭 Produsent"; }
+    #akevitt-tabell td:nth-of-type(4):before { content: "📅 Kjøpt"; }
+    #akevitt-tabell td:nth-of-type(5):before { content: "🔗 Lenke"; }
 }

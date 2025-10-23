@@ -1,7 +1,7 @@
-const akevitter = [
+const standardAkevitter = [
     { navn: "Arvesølvet Aquavit Christmas Edition 2024", pris: "kr 449,90", produsent: "Det Norske Brenneri", kjopt: "N/A", vinmonopolet: "https://www.aperitif.no/pollisten/produkt/arvesolvet-aquavit-christmas-edition,2355812" },
     { navn: "Arvesølvet Export", pris: "kr 729,90", produsent: "Det Norske Brenneri", kjopt: "N/A", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Arves%C3%B8lvet-Export/p/10789401" },
-    { navn: "Arvesølvet Juleakevitt 2023", pris: "kr 509,90", produsent: "Det Norske Brenneri", kjopt: "18.10.2023", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Arves%C3%B8lvet-Juleakevitt-2023/p/16470001" },
+    { navn: "Arvesølvet Juleakevitt 2023", pris: "kr 509,90", produsent: "Det Norske Brenneri", kjopt: "18.10.2023", vinmonopolet: "https://detnorskebrenneri.no/produkt/arvesolvet-juleakevitt-2023/" },
     { navn: "Arvesølvet Jurancon", pris: "kr 679,90", produsent: "Det Norske Brenneri", kjopt: "20.02.2025", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Agder/Grimstad/Arves%C3%B8lvet-Juran%C3%A7on/p/18747402" },
     { navn: "Arvesølvet Kjernekar Solera", pris: "kr 689,90", produsent: "Det Norske Brenneri", kjopt: "06.01.2023", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Agder/Arves%C3%B8lvet-Kjernekar-Single-Cask/p/8282702" },
     { navn: "Arvesølvet Mild Dill", pris: "kr 399,90", produsent: "Det Norske Brenneri", kjopt: "Gave", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Agder/Grimstad/Arves%C3%B8lvet-Mild-Dill/p/12946502" },
@@ -30,6 +30,7 @@ const akevitter = [
     { navn: "Gilde Juleakevitt 2024", pris: "kr 479,90", produsent: "Arcus AS", kjopt: "24.12.2024", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Gilde-Juleaquavit-2024/p/165102" },
     { navn: "Gilde Juleakevitt Ekstra Modnet - 2023", pris: "kr 579,90", produsent: "Arcus AS", kjopt: "12.11.2023", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Gilde-Ekstra-Modnet-Juleaquavit-2023/p/16510101" },
     { navn: "Gilde Juleakevitt Ekstra Modnet - 2024", pris: "kr 549,90", produsent: "Arcus AS", kjopt: "10.10.2024", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Gilde-Ekstra-Modnet-Juleaquavit-2024/p/16510101" },
+    { navn: "Gilde Juleakevitt Ekstra Modnet - 2025", pris: "kr 579,90", produsent: "Arcus AS", kjopt: "23.10.2025", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Akershus/Nittedal/Gilde-Ekstra-Modnet-Juleaquavit-2025/p/3405501" },
     { navn: "Gilde Non Plus Ultra 12 år", pris: "kr 644,90", produsent: "Arcus AS", kjopt: "N/A", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Gilde-Non-Plus-Ultra/p/35401" },
     { navn: "Gilde Non Plus Ultra 18 år", pris: "kr 714,90", produsent: "Arcus AS", kjopt: "02.01.2024", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Akershus/Nittedal/Gilde-Non-Plus-Ultra-18-%C3%A5r/p/16276901" },
     { navn: "Gullmunn Helårsakevitt", pris: "kr 399,90", produsent: "Det Norske Brenneri", kjopt: "N/A", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Agder/Gullmunn-Akevitt/p/15858002" },
@@ -37,6 +38,7 @@ const akevitter = [
     { navn: "Gulllmunn Single Cask Vintage Bourbonfat 2020", pris: "kr 849,90", produsent: "Det Norske Brenneri", kjopt: "Gave", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Agder/Grimstad/Gullmunn-Single-Cask-Vintage-Bourbonfat-2020/p/14682002" },
     { navn: "Hellstrøm Juleakevitt 2023", pris: "kr 499,90", produsent: "Det Norske Brenneri", kjopt: "31.01.2024", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Vestfold/T%C3%B8nsberg/Hellstr%C3%B8m-Juleaquavit-2023/p/16550901" },
     { navn: "Hellstrøm Juleakevitt 2024", pris: "kr 504,90", produsent: "Det Norske Brenneri", kjopt: "11.11.2024", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Vestfold/T%C3%B8nsberg/Hellstr%C3%B8m-Juleaquavit-2024/p/17520001" },
+    { navn: "Hellstrøm Juleakevitt 2025", pris: "kr 509,90", produsent: "Det Norske Brenneri", kjopt: "23.10.2025", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Agder/Grimstad/Hellstr%C3%B8m-Juleaquavit-2025/p/19794102" },
     { navn: "Inderøy Juleakevitt 2023", pris: "kr 500,20", produsent: "Inderøy Brenneri", kjopt: "18.10.2023", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Tr%C3%B8ndelag/Inder%C3%B8y/Inder%C3%B8y-Extra-Modnet-Juleaquavit-2023/p/16490602" },
     { navn: "Inderøy Premium Akevitt", pris: "kr 437,30", produsent: "Inderøy Brenneri", kjopt: "N/A", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Tr%C3%B8ndelag/Inder%C3%B8y-Brenneri-Den-Gyldne-Aquavit/p/10234302" },
     { navn: "Lillehammer Akevitt", pris: "kr 494,90", produsent: "Det Norske Brenneri", kjopt: "Gave", vinmonopolet: "https://www.vinmonopolet.no/Land/Norge/Akershus/Nittedal/Lillehammer-aquavit/p/1220001" },
@@ -89,6 +91,7 @@ const akevitter = [
 const egneAkevitter = JSON.parse(localStorage.getItem('egneAkevitter')) || [];
 
 // Kombinerer standardlisten med dine egne lagrede.
+// DENNE LINJEN ER NÅ RIKTIG, fordi den bruker "standardAkevitter"
 let akevitter = [...standardAkevitter, ...egneAkevitter];
 
 let currentSort = {
@@ -135,14 +138,25 @@ function updateSortIndicators() {
     }
 }
 
-function sortAndRender(column) {
-    if (currentSort.column === column) {
-        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-    } else {
+// ERSTATT DEN GAMLE 'sortAndRender' MED DENNE
+function sortAndRender(column, forceDirection = null) {
+    
+    if (forceDirection) {
+        // Brukes av mobil-dropdown: Tvinger en spesifikk retning
         currentSort.column = column;
-        currentSort.direction = 'asc';
+        currentSort.direction = forceDirection;
+    } else {
+        // Brukes av desktop-klikk: Bytter (toggler) retning
+        if (currentSort.column === column) {
+            currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+            currentSort.column = column;
+            currentSort.direction = 'asc';
+        }
     }
+    
     const directionModifier = currentSort.direction === 'asc' ? 1 : -1;
+    
     const sortedAkevitter = akevitter.sort((a, b) => {
         let valA, valB;
         switch (column) {
@@ -160,8 +174,15 @@ function sortAndRender(column) {
             default: return 0;
         }
     });
+    
     renderTable(sortedAkevitter);
     updateSortIndicators();
+    
+    // NY: Synkroniserer mobil-dropdownen med gjeldende sortering
+    const mobileSelect = document.getElementById('sort-select');
+    if (mobileSelect) {
+        mobileSelect.value = `${currentSort.column}-${currentSort.direction}`;
+    }
 }
 
 // NY FUNKSJON FOR Å LEGGE TIL PRODUKT
@@ -205,6 +226,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // LYTTER TIL DET NYE SKJEMAET
     document.getElementById('add-akevitt-form').addEventListener('submit', handleAddAkevitt);
 
+    // NY LINJE: LYTTER TIL MOBIL-DROPDOWN
+    document.getElementById('sort-select').addEventListener('change', handleMobileSort);
+
     // Viser tabellen sortert som standard ved første lasting
     sortAndRender(currentSort.column);
 });
+
+// NY FUNKSJON FOR Å HÅNDTERE MOBIL-SORTERING
+function handleMobileSort(event) {
+    const value = event.target.value; // f.eks. "pris-desc"
+    const [column, direction] = value.split('-'); // Blir til ["pris", "desc"]
+    
+    // Kaller den oppdaterte sortAndRender-funksjonen
+    sortAndRender(column, direction);
+}
